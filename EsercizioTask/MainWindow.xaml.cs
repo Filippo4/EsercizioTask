@@ -28,27 +28,12 @@ namespace EsercizioTask
 
         private void BtnEsegui_Click(object sender, RoutedEventArgs e)
         {
-            int n = int.Parse(txt_Numero.Text);
-            Task<int> t1 = Task.Factory.StartNew(() => TrovaMultipli(n),
-                CancellationToken.None,
-                TaskCreationOptions.LongRunning,
-                TaskScheduler.Default
-                );
-            lbl_output.Content = $"{t1.Result}";
-
+            
         }
 
         public static int TrovaMultipli(int n)
         {
-            int multipli = 0;
-            for (int i = 0; i < 200000000; i++)
-            {
-                if ((i / n) % 2 == 0)
-                {
-                    multipli++;
-                }
-            }
-            return multipli;
+          
         }
     }
 }
