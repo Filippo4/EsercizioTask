@@ -28,12 +28,28 @@ namespace EsercizioTask
 
         private void BtnEsegui_Click(object sender, RoutedEventArgs e)
         {
-            
+            int n = int.Parse(txt_Numero.Text);
+            Task<int> t1 =Task.Factory.StartNew(() => TrovaMultipli(n));
+            lbl_output.Content = t1.Result;
         }
 
-        public static int TrovaMultipli(int n)
+        public int TrovaMultipli(int n)
         {
-          
+            int nMultipli = 0;
+            for(int i=0;i<200000000;i++)
+            {
+                if(i%n==0)
+                {
+                    nMultipli++;
+                }
+            }
+
+          return nMultipli;
+        }
+
+        private void txt_Numero_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
